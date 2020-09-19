@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.devpesquisa.entities.enums.Platform;
@@ -30,6 +31,7 @@ public class Game implements Serializable{
 	@JoinColumn(name = "genre_id")
 	private Genre genre;
 	
+	@OneToMany(mappedBy = "game")
 	private List<Record> records = new ArrayList<Record>();
 	
 	public Game() {
